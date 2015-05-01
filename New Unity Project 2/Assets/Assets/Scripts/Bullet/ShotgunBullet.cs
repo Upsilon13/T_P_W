@@ -17,11 +17,16 @@ public class ShotgunBullet : MonoBehaviour {
     {
         if (start)
         {
-            bulletRigidbody.velocity = Quaternion.Euler(tra)* bulletRigidbody.transform.forward*30 ;
+            bulletRigidbody.velocity = Quaternion.Euler(tra)* bulletRigidbody.transform.forward*25 ;
             start = false;
         }
-
+       
     }
+
+   /* void FixedUpdate()
+    {
+        GetComponent<Rigidbody>().velocity = transform.forward * 25;
+    }*/
 
     public void started(Vector3 traj)
     {
@@ -42,8 +47,12 @@ public class ShotgunBullet : MonoBehaviour {
             health.TakeDamage(1);
             Destroy(gameObject);
         }
-
-        else if (other.tag != "Bullet" && other.tag != "Enemy")
+        /*else if (other.tag=="Glass")
+        {
+            other.GetComponent<DestroyGlass>().Destroy();
+        }
+        */
+        else if (/*other.tag != "Bullet" && other.tag != "Enemy"*/other.tag=="Wall")
         {
             Destroy(gameObject);
         }
@@ -52,7 +61,11 @@ public class ShotgunBullet : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag != "Bullet" /*&& other.GetComponent<Rigidbody>().isKinematic == false*/)
+        if (other.tag == "Wall"||other.tag=="Enemy" /*&& other.GetComponent<Rigidbody>().isKinematic == false*/)
         Destroy(gameObject);
+        /*else if (other.tag == "Glass")
+        {
+            other.GetComponent<DestroyGlass>().Destroy();
+        }*/
     }
 }

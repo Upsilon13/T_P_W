@@ -28,7 +28,7 @@ public class PlayerCondition : MonoBehaviour {
     {
         Dead = true;
         GetComponent<Rigidbody>().isKinematic = true;
-        
+        Debug.Log("DEEEAD");
         GetComponent<BoxCollider>().enabled = false;
     }
 
@@ -39,7 +39,7 @@ public class PlayerCondition : MonoBehaviour {
 
     public bool isDead()
     {
-        if (CurrentHealth < 0)
+        if (Dead)
         {
             return false;
         }

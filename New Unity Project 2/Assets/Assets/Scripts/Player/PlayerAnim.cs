@@ -7,9 +7,12 @@ public class PlayerAnim : MonoBehaviour
     Animator anim;
     PlayerController player;
     PlayerCondition stat;
+    
+    
 
     void Awake()
     {
+        
         player = GetComponentInParent<PlayerController>();
         anim = GetComponent<Animator>();
         stat = GetComponentInParent<PlayerCondition>();
@@ -18,6 +21,7 @@ public class PlayerAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (player.walk()&&stat.isDead())
         {
             anim.SetBool("Iswalking", true);

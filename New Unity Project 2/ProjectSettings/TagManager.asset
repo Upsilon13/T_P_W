@@ -14,6 +14,7 @@ TagManager:
   - Bullet
   - Floor
   - Wall
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Extents
   - Floor
   - Wall
-  - 
+  - Bullet
   - 
   - 
   - 

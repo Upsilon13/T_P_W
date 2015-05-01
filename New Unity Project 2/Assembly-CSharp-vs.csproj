@@ -47,20 +47,23 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\%TEMP\InputDetection.cs" />
-     <Compile Include="Assets\%TEMP\MoveTo.cs" />
      <Compile Include="Assets\%TEMP\SeenByEnemy.cs" />
-     <Compile Include="Assets\Appear.cs" />
+     <Compile Include="Assets\%TEMP\ThroughWalls.cs" />
      <Compile Include="Assets\Assets\Scripts\Bullet\ARBullet.cs" />
      <Compile Include="Assets\Assets\Scripts\Bullet\Bullet.cs" />
      <Compile Include="Assets\Assets\Scripts\Bullet\PistolBullet.cs" />
      <Compile Include="Assets\Assets\Scripts\Bullet\ShotgunBullet.cs" />
-     <Compile Include="Assets\Assets\Scripts\EnemyCondition.cs" />
-     <Compile Include="Assets\Assets\Scripts\FollowPlayer.cs" />
+     <Compile Include="Assets\Assets\Scripts\DestroyGlass.cs" />
+     <Compile Include="Assets\Assets\Scripts\Enemies\EnemyCondition.cs" />
+     <Compile Include="Assets\Assets\Scripts\Enemies\FollowPlayer.cs" />
      <Compile Include="Assets\Assets\Scripts\Gun\AssaultRiffle.cs" />
      <Compile Include="Assets\Assets\Scripts\Gun\CameraControl.cs" />
+     <Compile Include="Assets\Assets\Scripts\Gun\MoveTo.cs" />
      <Compile Include="Assets\Assets\Scripts\Gun\Pistol.cs" />
      <Compile Include="Assets\Assets\Scripts\Gun\Shoot_.cs" />
      <Compile Include="Assets\Assets\Scripts\Gun\Shotgun.cs" />
+     <Compile Include="Assets\Assets\Scripts\Player\Appear.cs" />
+     <Compile Include="Assets\Assets\Scripts\Player\ChoseG.cs" />
      <Compile Include="Assets\Assets\Scripts\Player\PlayerAnim.cs" />
      <Compile Include="Assets\Assets\Scripts\Player\PlayerCondition.cs" />
      <Compile Include="Assets\Assets\Scripts\Player\PlayerController.cs" />
@@ -85,7 +88,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/ReM/Documents/tiny42sh/New Unity Project 2/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/ReM/Documents/T_P_W/New Unity Project 2/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

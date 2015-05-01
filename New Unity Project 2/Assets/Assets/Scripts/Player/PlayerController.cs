@@ -12,13 +12,15 @@ public class PlayerController : MonoBehaviour
     private PlayerCondition PlC;
     bool d = true;
     public bool is_walking;
-    bool armed;
+    protected bool armed;
     bool attackb;
+    float timer;
 
     void Awake()
     {
         // Create a layer mask for the floor layer.
         attackb = false;
+        timer = 5;
         is_walking = false;
         armed = false;
         floorMask = LayerMask.GetMask("Floor");
@@ -40,19 +42,27 @@ public class PlayerController : MonoBehaviour
             d = false;
         }
     }
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (armed == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Debug.Log("Mouse0");
+                attack();
+            }
+        }
+    }
 
     void FixedUpdate()
     {
+        attackb = false;
         if (d)
         {
             float moveHorizontal = Input.GetAxisRaw("Horizontal");
             float moveVertical = Input.GetAxisRaw("Vertical");
             Move(moveHorizontal, moveVertical);
-            if (armed == false)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse1))
-                    attack();
-            }
             Turning();
             if (moveHorizontal != 0 || moveVertical != 0)
                 is_walking = true;
@@ -67,8 +77,14 @@ public class PlayerController : MonoBehaviour
     void Move(float moveHorizontal, float moveVertical)
     {
         movement.Set(moveHorizontal, 0f, moveVertical);
-        movement = movement.normalized * speed * Time.deltaTime;
+        movement = movement.normalized * speed*Time.deltaTime ;
         playerRigidbody.MovePosition(transform.position + movement);
+        /*playerRigidbody.AddForce(movement * 10);
+        if (moveHorizontal==0&&moveVertical==0)
+        {
+            playerRigidbody.velocity = new Vector3(0,0,0);   
+        }*/
+        
     }
 
     void Turning()
@@ -92,13 +108,23 @@ public class PlayerController : MonoBehaviour
 
     private void attack()
     {
-        attackb = true;
-        Debug.Log("DIE!");
+        if (timer>0.25&&armed==false)
+        {
+            attackb = true;
+            Debug.Log("DIE!");
+            timer = 0;
+        }
+        
     }
 
     public bool IsAttacking()
     {
         return attackb;
+    }
+
+    public void SetArmed(bool b)
+    {
+        armed = b;
     }
 
     //Not Complete
